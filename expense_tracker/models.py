@@ -1,6 +1,6 @@
-from dataclasses import dataclass, asdict
-from datetime import date
 import uuid
+from dataclasses import asdict, dataclass
+from datetime import date
 
 
 @dataclass

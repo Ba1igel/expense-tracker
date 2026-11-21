@@ -1,0 +1,17 @@
+[project]
+name = "expense-tracker"
+version = "0.4.0"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "SIM"]
+
+[tool.mypy]
+ignore_missing_imports = true

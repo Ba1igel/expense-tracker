@@ -1,5 +1,5 @@
-from expense_tracker.models import Expense
 from expense_tracker import report
+from expense_tracker.models import Expense
 
 
 def make(amount, cat, d):
