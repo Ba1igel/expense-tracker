@@ -56,3 +56,16 @@ def test_limits_and_labels_unchanged(cat, limit, label):
     assert report.limit_warnings([make(limit, cat, "2026-03-01")]) == []
     over = report.limit_warnings([make(limit + 1, cat, "2026-03-01")])
     assert over == [f"{label}: {limit + 1} KZT is over the limit of {limit} KZT"]
+
+
+# R-01 regression tests: the CLI passes year and month as ints (int("03") == 3)
+def test_filter_by_month_with_int_month_like_cli():
+    items = [make(3000, "food", "2026-03-04"), make(1500, "transport", "2026-03-10"), make(9000, "food", "2026-04-01")]
+    result = report.filter_by_month(items, 2026, 3)
+    assert [e.amount for e in result] == [3000, 1500]
+
+
+def test_january_does_not_include_october_to_december():
+    items = [make(4000, "food", "2026-01-15"), make(9000, "food", "2026-10-02"), make(100, "food", "2026-12-31")]
+    result = report.filter_by_month(items, 2026, 1)
+    assert [e.amount for e in result] == [4000]

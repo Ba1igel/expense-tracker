@@ -4,7 +4,8 @@ from .categories import rule_for
 
 
 def filter_by_month(expenses, year, month):
-    prefix = f"{year}-{month}"
+    # dates are stored as "YYYY-MM-DD"; zero-pad so that 3 -> "03" and 1 never matches "10".."12"
+    prefix = f"{int(year):04d}-{int(month):02d}-"
     return [e for e in expenses if e.date.startswith(prefix)]
 
 
