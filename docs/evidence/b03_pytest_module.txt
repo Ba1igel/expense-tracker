@@ -1,0 +1,18 @@
+$ python -m pytest -v
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /work/expense-tracker/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /work/expense-tracker
+plugins: platformdirs-4.14.8
+collecting ... collected 7 items
+
+tests/test_report.py::test_total PASSED                                  [ 14%]
+tests/test_report.py::test_by_category PASSED                            [ 28%]
+tests/test_report.py::test_filter_by_month PASSED                        [ 42%]
+tests/test_report.py::test_limit_warning_food PASSED                     [ 57%]
+tests/test_report.py::test_no_warning_under_limit PASSED                 [ 71%]
+tests/test_storage.py::test_save_and_load PASSED                         [ 85%]
+tests/test_storage.py::test_load_missing_file PASSED                     [100%]
+
+============================== 7 passed in 0.02s ===============================
+[exit code: 0]

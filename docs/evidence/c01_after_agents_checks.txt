@@ -1,0 +1,13 @@
+$ pytest -q; ruff check . --output-format concise; mypy expense_tracker
+.......                                                                  [100%]
+7 passed in 0.03s
+expense_tracker/report.py:21:5: SIM116 Use a dictionary instead of consecutive `if` statements
+expense_tracker/report.py:34:5: SIM116 Use a dictionary instead of consecutive `if` statements
+expense_tracker/report.py:49:9: SIM114 [*] Combine `if` branches using logical `or` operator
+expense_tracker/report.py:51:9: SIM114 [*] Combine `if` branches using logical `or` operator
+expense_tracker/report.py:53:9: SIM114 [*] Combine `if` branches using logical `or` operator
+expense_tracker/report.py:55:9: SIM114 [*] Combine `if` branches using logical `or` operator
+Found 6 errors.
+[*] 4 fixable with `--fix`.
+Success: no issues found in 6 source files
+[exit code: 0]

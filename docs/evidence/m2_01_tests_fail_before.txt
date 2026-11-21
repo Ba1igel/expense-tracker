@@ -1,0 +1,126 @@
+$ python -m pytest -q tests/test_storage.py
+..FFFFF.                                                                 [100%]
+=================================== FAILURES ===================================
+__________ test_export_rejects_paths_outside_data_dir[../outside.csv] __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1b65184050>
+bad_name = '../outside.csv'
+
+    @pytest.mark.parametrize("bad_name", ["../outside.csv", "../../etc/x.csv", "/tmp/abs.csv", "sub/dir.csv", ""])
+    def test_export_rejects_paths_outside_data_dir(tmp_path, monkeypatch, bad_name):
+        data = tmp_path / "data"
+        monkeypatch.setattr(storage, "DATA_DIR", str(data))
+        with pytest.raises(ValueError):
+>           storage.export_csv([], bad_name)
+
+tests/test_storage.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expenses = [], filename = '../outside.csv'
+
+    def export_csv(expenses, filename):
+        out = os.path.join(DATA_DIR, filename)
+>       with open(out, "w", newline="") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs0/data/../outside.csv'
+
+expense_tracker/storage.py:38: FileNotFoundError
+_________ test_export_rejects_paths_outside_data_dir[../../etc/x.csv] __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1b650b7680>
+bad_name = '../../etc/x.csv'
+
+    @pytest.mark.parametrize("bad_name", ["../outside.csv", "../../etc/x.csv", "/tmp/abs.csv", "sub/dir.csv", ""])
+    def test_export_rejects_paths_outside_data_dir(tmp_path, monkeypatch, bad_name):
+        data = tmp_path / "data"
+        monkeypatch.setattr(storage, "DATA_DIR", str(data))
+        with pytest.raises(ValueError):
+>           storage.export_csv([], bad_name)
+
+tests/test_storage.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expenses = [], filename = '../../etc/x.csv'
+
+    def export_csv(expenses, filename):
+        out = os.path.join(DATA_DIR, filename)
+>       with open(out, "w", newline="") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs1/data/../../etc/x.csv'
+
+expense_tracker/storage.py:38: FileNotFoundError
+___________ test_export_rejects_paths_outside_data_dir[/tmp/abs.csv] ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1b650b7df0>
+bad_name = '/tmp/abs.csv'
+
+    @pytest.mark.parametrize("bad_name", ["../outside.csv", "../../etc/x.csv", "/tmp/abs.csv", "sub/dir.csv", ""])
+    def test_export_rejects_paths_outside_data_dir(tmp_path, monkeypatch, bad_name):
+        data = tmp_path / "data"
+        monkeypatch.setattr(storage, "DATA_DIR", str(data))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_storage.py:27: Failed
+___________ test_export_rejects_paths_outside_data_dir[sub/dir.csv] ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1b64fcc250>
+bad_name = 'sub/dir.csv'
+
+    @pytest.mark.parametrize("bad_name", ["../outside.csv", "../../etc/x.csv", "/tmp/abs.csv", "sub/dir.csv", ""])
+    def test_export_rejects_paths_outside_data_dir(tmp_path, monkeypatch, bad_name):
+        data = tmp_path / "data"
+        monkeypatch.setattr(storage, "DATA_DIR", str(data))
+        with pytest.raises(ValueError):
+>           storage.export_csv([], bad_name)
+
+tests/test_storage.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expenses = [], filename = 'sub/dir.csv'
+
+    def export_csv(expenses, filename):
+        out = os.path.join(DATA_DIR, filename)
+>       with open(out, "w", newline="") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs3/data/sub/dir.csv'
+
+expense_tracker/storage.py:38: FileNotFoundError
+_________________ test_export_rejects_paths_outside_data_dir[] _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1b650ef850>
+bad_name = ''
+
+    @pytest.mark.parametrize("bad_name", ["../outside.csv", "../../etc/x.csv", "/tmp/abs.csv", "sub/dir.csv", ""])
+    def test_export_rejects_paths_outside_data_dir(tmp_path, monkeypatch, bad_name):
+        data = tmp_path / "data"
+        monkeypatch.setattr(storage, "DATA_DIR", str(data))
+        with pytest.raises(ValueError):
+>           storage.export_csv([], bad_name)
+
+tests/test_storage.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expenses = [], filename = ''
+
+    def export_csv(expenses, filename):
+        out = os.path.join(DATA_DIR, filename)
+>       with open(out, "w", newline="") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       IsADirectoryError: [Errno 21] Is a directory: '/tmp/pytest-of-root/pytest-8/test_export_rejects_paths_outs4/data/'
+
+expense_tracker/storage.py:38: IsADirectoryError
+=========================== short test summary info ============================
+FAILED tests/test_storage.py::test_export_rejects_paths_outside_data_dir[../outside.csv]
+FAILED tests/test_storage.py::test_export_rejects_paths_outside_data_dir[../../etc/x.csv]
+FAILED tests/test_storage.py::test_export_rejects_paths_outside_data_dir[/tmp/abs.csv]
+FAILED tests/test_storage.py::test_export_rejects_paths_outside_data_dir[sub/dir.csv]
+FAILED tests/test_storage.py::test_export_rejects_paths_outside_data_dir[] - ...
+5 failed, 3 passed in 0.04s
+[exit code: 1]

@@ -1,0 +1,11 @@
+$ ruff check . --output-format concise
+expense_tracker/models.py:1:1: I001 [*] Import block is un-sorted or un-formatted
+expense_tracker/report.py:1:8: F401 [*] `os` imported but unused
+expense_tracker/report.py:50:9: SIM114 [*] Combine `if` branches using logical `or` operator
+expense_tracker/report.py:52:9: SIM114 [*] Combine `if` branches using logical `or` operator
+expense_tracker/report.py:54:9: SIM114 [*] Combine `if` branches using logical `or` operator
+expense_tracker/report.py:56:9: SIM114 [*] Combine `if` branches using logical `or` operator
+tests/test_report.py:1:1: I001 [*] Import block is un-sorted or un-formatted
+Found 7 errors.
+[*] 7 fixable with `--fix`.
+[exit code: 1]

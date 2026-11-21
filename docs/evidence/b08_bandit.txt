@@ -1,0 +1,3 @@
+$ bandit -q -r expense_tracker; echo 'bandit: no issues reported'
+bandit: no issues reported
+[exit code: 0]

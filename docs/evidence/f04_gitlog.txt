@@ -1,0 +1,10 @@
+$ git log --oneline --decorate && git diff --stat baseline final | tail -1
+3d698d6 (HEAD -> main, tag: final) Add CLAUDE.md that imports AGENTS.md
+40b1ed3 Fix R-02: export only accepts plain file names inside the data dir
+404b702 Fix R-01: month filter zero-pads month (March was empty, January included Oct-Dec)
+c65adf5 Refactor: move category labels/limits into CategoryRule table (removes duplicated if/elif chains)
+9d238a9 Add characterization tests for category limits and labels (AC3)
+78073cb Add AGENTS.md, acceptance criteria, pyproject tool config; fix README commands
+a6f2b59 (tag: baseline) Expense tracker v0.3.0 (baseline before assignment 5)
+ 15 files changed, 261 insertions(+), 47 deletions(-)
+[exit code: 0]

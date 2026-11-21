@@ -1,0 +1,7 @@
+$ export EXPENSES_DIR=/tmp/et_demo/data; rm -rf /tmp/et_demo; python -m expense_tracker add 1000 food --date 2026-03-01; python -m expense_tracker export ../../outside.csv; echo '--- file written outside the data dir:'; cat /tmp/outside.csv
+Added 130b2975: 1000 KZT (food)
+Exported 1 expenses to /tmp/et_demo/data/../../outside.csv
+--- file written outside the data dir:
+id,date,category,amount,note
+130b2975,2026-03-01,food,1000.0,
+[exit code: 0]

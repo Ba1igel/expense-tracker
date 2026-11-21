@@ -1,0 +1,7 @@
+$ export EXPENSES_DIR=/tmp/et_demo/data; rm -rf /tmp/et_demo; python -m expense_tracker add 1000 food --date 2026-03-01; python -m expense_tracker export ../../outside.csv; echo "exit=$?"; ls /tmp/outside.csv; python -m expense_tracker export march.csv
+Added 2549a859: 1000 KZT (food)
+Error: export file must be a plain file name, got '../../outside.csv'
+exit=2
+ls: cannot access '/tmp/outside.csv': No such file or directory
+Exported 1 expenses to /tmp/et_demo/data/march.csv
+[exit code: 0]

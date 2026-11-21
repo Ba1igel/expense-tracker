@@ -1,0 +1,4 @@
+$ set -o pipefail; export EXPENSES_DIR=$(mktemp -d); python -m expense_tracker add --date 2026-03-01 -- -50000 food; echo '[{"amount": 100, "categ' > $EXPENSES_DIR/expenses.json; python -m expense_tracker list 2>&1 | tail -1
+Added 87159e27: -50000 KZT (food)
+json.decoder.JSONDecodeError: Invalid control character at: line 1 column 24 (char 23)
+[exit code: 1]

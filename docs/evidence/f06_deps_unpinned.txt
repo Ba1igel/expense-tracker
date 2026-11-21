@@ -1,0 +1,6 @@
+$ cat requirements.txt requirements-dev.txt
+tabulate
+pytest
+ruff
+mypy
+[exit code: 0]

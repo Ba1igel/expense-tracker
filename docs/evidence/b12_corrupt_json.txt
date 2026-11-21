@@ -1,0 +1,5 @@
+$ set -o pipefail; export EXPENSES_DIR=$(mktemp -d); echo '[{"amount": 100, "categ' > $EXPENSES_DIR/expenses.json; python -m expense_tracker list 2>&1 | tail -3
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Invalid control character at: line 1 column 24 (char 23)
+[exit code: 1]

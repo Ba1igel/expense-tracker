@@ -1,0 +1,14 @@
+$ git log --oneline && find . \( -path ./.venv -o -path ./.git -o -name __pycache__ -o -name .pytest_cache -o -name .mypy_cache -o -name .ruff_cache \) -prune -o -type f -print | sort
+a6f2b59 Expense tracker v0.3.0 (baseline before assignment 5)
+./.gitignore
+./README.md
+./expense_tracker/__init__.py
+./expense_tracker/__main__.py
+./expense_tracker/cli.py
+./expense_tracker/models.py
+./expense_tracker/report.py
+./expense_tracker/storage.py
+./requirements.txt
+./tests/test_report.py
+./tests/test_storage.py
+[exit code: 0]

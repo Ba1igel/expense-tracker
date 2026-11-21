@@ -1,0 +1,7 @@
+$ grep -nE 'if (cat|category) ==|elif (cat|category) ==|not in \(' expense_tracker/report.py | wc -l; grep -c '"food"' expense_tracker/report.py; wc -l expense_tracker/report.py expense_tracker/categories.py
+0
+0
+  36 expense_tracker/report.py
+  29 expense_tracker/categories.py
+  65 total
+[exit code: 0]

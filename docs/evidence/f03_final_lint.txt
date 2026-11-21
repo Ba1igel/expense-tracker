@@ -1,0 +1,6 @@
+$ ruff check . && mypy expense_tracker && pip-audit -r requirements.txt && bandit -q -r expense_tracker && echo 'bandit: no issues reported'
+All checks passed!
+Success: no issues found in 7 source files
+No known vulnerabilities found
+bandit: no issues reported
+[exit code: 0]

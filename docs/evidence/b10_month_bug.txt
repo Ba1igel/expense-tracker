@@ -1,0 +1,13 @@
+$ export EXPENSES_DIR=$(mktemp -d); python -m expense_tracker add 3000 food --date 2026-03-04 --note groceries; python -m expense_tracker add 1500 transport --date 2026-03-10; python -m expense_tracker add 9000 food --date 2026-10-02 --note october; python -m expense_tracker add 4000 food --date 2026-01-15 --note january; echo; python -m expense_tracker summary 2026-03; echo; python -m expense_tracker summary 2026-01
+Added c8a40c32: 3000 KZT (food)
+Added 16afacae: 1500 KZT (transport)
+Added 307f4a64: 9000 KZT (food)
+Added ee390cc5: 4000 KZT (food)
+
+Summary for 2026-03
+  TOTAL                       0 KZT
+
+Summary for 2026-01
+  Food & groceries         9000 KZT
+  TOTAL                    9000 KZT
+[exit code: 0]

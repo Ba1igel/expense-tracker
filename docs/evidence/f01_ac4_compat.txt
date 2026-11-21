@@ -1,0 +1,9 @@
+$ export EXPENSES_DIR=$(mktemp -d); (cd /work/baseline-wt && python -m expense_tracker add 2500 food --date 2026-03-02 --note 'written by v0.3.0' && python -m expense_tracker add 700 transport --date 2026-03-03); echo '--- now reading the same file with v0.4.0:'; python -m expense_tracker list --month 2026-03
+Added f50098c4: 2500 KZT (food)
+Added 38a8c038: 700 KZT (transport)
+--- now reading the same file with v0.4.0:
+id        date        category      amount  note
+--------  ----------  ----------  --------  -----------------
+f50098c4  2026-03-02  food            2500  written by v0.3.0
+38a8c038  2026-03-03  transport        700
+[exit code: 0]

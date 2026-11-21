@@ -1,0 +1,36 @@
+$ python -m pytest -v
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /work/expense-tracker/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /work/expense-tracker
+configfile: pyproject.toml
+testpaths: tests
+plugins: platformdirs-4.14.8
+collecting ... collected 23 items
+
+tests/test_categories.py::test_unknown_category_uses_default_rule PASSED [  4%]
+tests/test_categories.py::test_known_categories PASSED                   [  8%]
+tests/test_categories.py::test_is_over_limit_is_strict PASSED            [ 13%]
+tests/test_report.py::test_total PASSED                                  [ 17%]
+tests/test_report.py::test_by_category PASSED                            [ 21%]
+tests/test_report.py::test_filter_by_month PASSED                        [ 26%]
+tests/test_report.py::test_limit_warning_food PASSED                     [ 30%]
+tests/test_report.py::test_no_warning_under_limit PASSED                 [ 34%]
+tests/test_report.py::test_limits_and_labels_unchanged[food-60000-Food & groceries] PASSED [ 39%]
+tests/test_report.py::test_limits_and_labels_unchanged[transport-15000-Transport] PASSED [ 43%]
+tests/test_report.py::test_limits_and_labels_unchanged[entertainment-20000-Entertainment] PASSED [ 47%]
+tests/test_report.py::test_limits_and_labels_unchanged[utilities-35000-Utilities] PASSED [ 52%]
+tests/test_report.py::test_limits_and_labels_unchanged[gifts-10000-Other] PASSED [ 56%]
+tests/test_report.py::test_filter_by_month_with_int_month_like_cli PASSED [ 60%]
+tests/test_report.py::test_january_does_not_include_october_to_december PASSED [ 65%]
+tests/test_storage.py::test_save_and_load PASSED                         [ 69%]
+tests/test_storage.py::test_load_missing_file PASSED                     [ 73%]
+tests/test_storage.py::test_export_rejects_paths_outside_data_dir[../outside.csv] PASSED [ 78%]
+tests/test_storage.py::test_export_rejects_paths_outside_data_dir[../../etc/x.csv] PASSED [ 82%]
+tests/test_storage.py::test_export_rejects_paths_outside_data_dir[/tmp/abs.csv] PASSED [ 86%]
+tests/test_storage.py::test_export_rejects_paths_outside_data_dir[sub/dir.csv] PASSED [ 91%]
+tests/test_storage.py::test_export_rejects_paths_outside_data_dir[] PASSED [ 95%]
+tests/test_storage.py::test_export_plain_filename_works PASSED           [100%]
+
+============================== 23 passed in 0.03s ==============================
+[exit code: 0]
