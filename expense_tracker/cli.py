@@ -36,8 +36,13 @@ def cmd_summary(args):
 
 def cmd_export(args):
     expenses = storage.load_expenses()
-    path = storage.export_csv(expenses, args.file)
+    try:
+        path = storage.export_csv(expenses, args.file)
+    except ValueError as err:
+        print(f"Error: {err}", file=sys.stderr)
+        return 2
     print(f"Exported {len(expenses)} expenses to {path}")
+    return 0
 
 
 def main(argv=None):
@@ -64,8 +69,7 @@ def main(argv=None):
     ex.set_defaults(func=cmd_export)
 
     args = p.parse_args(argv)
-    args.func(args)
-    return 0
+    return args.func(args) or 0
 
 
 if __name__ == "__main__":
