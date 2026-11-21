@@ -14,7 +14,8 @@ Data lives in a JSON file at `$EXPENSES_DIR/expenses.json` (default `~/.expenses
 | File | Responsibility |
 |------|----------------|
 | `expense_tracker/cli.py` | argparse commands (`add`, `list`, `summary`, `export`), printing only |
-| `expense_tracker/report.py` | pure functions: month filter, totals, category limits/warnings |
+| `expense_tracker/report.py` | pure functions: month filter, totals, limit warnings |
+| `expense_tracker/categories.py` | category rules table (label + monthly limit), add new categories here |
 | `expense_tracker/storage.py` | JSON load/save and CSV export, the only module that touches the disk |
 | `expense_tracker/models.py` | `Expense` dataclass |
 | `tests/` | pytest tests, one file per module |
