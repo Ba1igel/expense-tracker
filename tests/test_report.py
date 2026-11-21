@@ -1,3 +1,5 @@
+import pytest
+
 from expense_tracker import report
 from expense_tracker.models import Expense
 
@@ -33,3 +35,24 @@ def test_limit_warning_food():
 def test_no_warning_under_limit():
     items = [make(5000, "transport", "2026-03-01")]
     assert report.limit_warnings(items) == []
+
+
+# characterization tests added before the category refactor (AC3)
+
+
+@pytest.mark.parametrize(
+    "cat,limit,label",
+    [
+        ("food", 60000, "Food & groceries"),
+        ("transport", 15000, "Transport"),
+        ("entertainment", 20000, "Entertainment"),
+        ("utilities", 35000, "Utilities"),
+        ("gifts", 10000, "Other"),
+    ],
+)
+def test_limits_and_labels_unchanged(cat, limit, label):
+    assert report.monthly_limit(cat) == limit
+    assert report.category_label(cat) == label
+    assert report.limit_warnings([make(limit, cat, "2026-03-01")]) == []
+    over = report.limit_warnings([make(limit + 1, cat, "2026-03-01")])
+    assert over == [f"{label}: {limit + 1} KZT is over the limit of {limit} KZT"]
